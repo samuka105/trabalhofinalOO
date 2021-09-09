@@ -7,15 +7,12 @@ public class Produto
     private float Nota;
     private int Indice;
 
-    public Produto(float nota)
+    public Produto(float nota, String nome)
     {
-        if (nota < 0)
-        {
-            throw new IllegalArgumentException("Produto precisa de Nota maior que Zero");
-        }
-        else
-        {
-            Nota = nota;
+        if (nota < 0 || nota > 10) {
+            throw new IllegalArgumentException("Produto precisa de Nota maior que Zero e menor que Dez");
+        } else if(nome.length() < 5){
+            throw new IllegalArgumentException("O nome da obra precisa ter pelo menos 5 caracteres");
         }
     }
 

@@ -9,21 +9,31 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProdutoTest
 {
     @Test
-    void retornaTrueSuperclasse() {
+    void retornaTrueParaProduto() {
 
         List<Produto> produtos = new ArrayList<Produto>();
 
-        Produto a = new Produto(2.0f);
+        Produto a = new Produto(2.0f, "Senhor dos Aneis");
         produtos.add(a);
         assertEquals(true, (produtos.get(0).retornaTrueObjetoSuperclasse()));
     }
 
     @Test
-    void retornaFalseSuperClasse()
+    void retornaFalseParaFilme()
     {
         List<Produto> lista = new ArrayList<Produto>();
 
-        Produto a = new Filme(2.0f, "Caça ao Tesouro");
+        Produto a = new Filme(2.0f, "Cavaleiro das Trevas");
+        lista.add(a);
+        assertEquals(false, (lista.get(0).retornaTrueObjetoSuperclasse()));
+    }
+
+    @Test
+    void retornaFalseParaSerie()
+    {
+        List<Produto> lista = new ArrayList<Produto>();
+
+        Produto a = new Serie(5.4f, "O Retorno de Mussum");
         lista.add(a);
         assertEquals(false, (lista.get(0).retornaTrueObjetoSuperclasse()));
     }
@@ -31,61 +41,11 @@ public class ProdutoTest
     @Test
     void deveRetornarMensagemNotaMenorQueZero() {
         try {
-            Produto p = new Produto(-3);
+            Produto p = new Produto(-3, "Castelo Ratimbum");
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("Produto precisa de Nota maior que Zero", e.getMessage());
         }
-    }
-
-    @Test
-    void deveRetornarIndiceCorretoListaProduto()
-    {
-        Produto a = new Filme(2.0f, "Caça ao Tesouro");
-        Dono d1 = new Dono("Carlos", "857826", "Timóteo");
-
-        d1.criaServico("UFJFflix", 40.0f);
-        Servico s1 = d1.getServico();
-
-        s1.insereListaDeProdutos(a);
-
-        assertEquals(0,s1.retornaIndiceProdutoLista(a));
-
-    }
-
-    @Test
-    void deveRetornarProdutoCorretoListaProduto()
-    {
-        Produto a = new Filme(2.0f, "Caça ao Tesouro");
-        Dono d1 = new Dono("Carlos", "857826", "Timóteo");
-
-        d1.criaServico("UFJFflix", 40.0f);
-        Servico s1 = d1.getServico();
-
-        s1.insereListaDeProdutos(a);
-
-        assertEquals(a,s1.retornaProdutoLista(0));
-    }
-
-    @Test
-    void deveRetornarIndiceCorretoListaUsuario()
-    {
-        Produto a = new Filme(2.0f, "Caça ao Tesouro");
-        Dono d1 = new Dono("Carlos", "857826", "Timóteo");
-
-        d1.criaServico("UFJFflix", 40.0f);
-        Servico s1 = d1.getServico();
-
-        s1.insereListaDeProdutos(a);
-
-        assertEquals(a,s1.retornaProdutoLista(0));
-
-    }
-
-    @Test
-    void deveRetornarUsuarioCorretoListaUsuario()
-    {
-
     }
 
 }

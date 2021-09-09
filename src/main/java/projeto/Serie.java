@@ -6,13 +6,10 @@ import java.util.List;
 public class Serie extends Produto
 {
     private List<Serie> ListaSeriesParecidas;
-    private float Nota;
 
-    public Serie(float nota, float nota1) {
-        super(nota);
-
+    public Serie(float nota, String nome) {
+        super(nota, nome);
         ListaSeriesParecidas = new ArrayList<Serie>();
-        Nota = nota1;
     }
 
     public List<Serie> retornaListaSeriesParecidas()
@@ -20,9 +17,14 @@ public class Serie extends Produto
         return ListaSeriesParecidas;
     };
 
-    void insereNaListaSeriesParecidas(Serie s1)
+    public void insereListaSeriesParecidas(Serie serie)
     {
-        ListaSeriesParecidas.add(s1);
+        if (serie == null) {
+            throw new IllegalArgumentException("Deve inserir uma série parecida valida");
+        } else {
+            ListaSeriesParecidas.add(serie);
+        }
+
     };
 
     public Serie retornaSerieParecidaEspecifica(int indice)
@@ -33,6 +35,14 @@ public class Serie extends Produto
     public void removeSeriesParecidaEspecifica(int indice)
     {
         ListaSeriesParecidas.remove(indice);
+    }
+
+    public List<Serie> getListaSeriesParecidas() {
+        return ListaSeriesParecidas;
+    }
+
+    public void setListaSeriesParecidas(List<Serie> listaSeriesParecidas) {
+        ListaSeriesParecidas = listaSeriesParecidas;
     }
 
     @Override

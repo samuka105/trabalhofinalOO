@@ -7,7 +7,15 @@ public class Usuario extends Pessoa
 
     public Usuario(String nome, String cpf, String cidade, String tipodeAssinatura) {
         super(nome, cpf, cidade);
-        TipodeAssinatura = tipodeAssinatura;
+        if (
+                        (tipodeAssinatura.equals("Basico")) ||
+                        (tipodeAssinatura.equals("Premium")) ||
+                        (tipodeAssinatura.equals("Elite"))
+        ) {
+            throw new IllegalArgumentException("O tipo de assinatura tem de ser Basico, Premium ou Elite");
+        } else {
+            TipodeAssinatura = tipodeAssinatura;
+        }
     }
 
     public int getNumeroUsuario() {

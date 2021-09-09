@@ -17,7 +17,7 @@ public class Dono extends Pessoa
         return servico;
     }
 
-    public void setUFJFflix(Servico servico) {
+    public void setServico(Servico servico) {
         this.servico = servico;
     }
 

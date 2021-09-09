@@ -11,12 +11,15 @@ public class Pessoa
         {
             throw new IllegalArgumentException("Pessoa precisa ter Nome, Cpf e Cidade");
         }
-        else
+        else if(nome.length() < 3)
         {
+            throw new IllegalArgumentException("O nome deve ter pelo menos 3 caracteres");
+        } else {
             this.nome = nome;
-            this.cpf = cpf;
+            this.cpf= cpf;
             this.cidade = cidade;
         }
+
     }
 
     public String getNome() {

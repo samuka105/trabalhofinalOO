@@ -5,35 +5,46 @@ import java.util.List;
 
 public class Filme extends Produto
 {
-    private String NomeFilme;
-    private List<Serie> ListaFilmesParecidos;
+    private List<Filme> ListaFilmesParecidos;
 
-    public Filme(float nota, String nomeFilme) {
-        super(nota);
+    public Filme(float nota, String nome) {
+        super(nota, nome);
 
-        NomeFilme = nomeFilme;
-        ListaFilmesParecidos = new ArrayList<Serie>();
+        ListaFilmesParecidos = new ArrayList<Filme>();
     }
 
-    public List<Serie> retornaListaFilmesParecidos()
+    public List<Filme> retornaListaFilmesParecidos()
     {
         return ListaFilmesParecidos;
     };
 
-    void insereNaListaFilmesParecidos(Serie s1)
+    public void insereListaFilmesParecidos(Filme filme)
     {
-        ListaFilmesParecidos.add(s1);
+        if (filme == null) {
+            throw new IllegalArgumentException("Deve inserir um filme parecido valido");
+        } else {
+            ListaFilmesParecidos.add(filme);
+        }
+
     };
 
-    public Serie retornaFilmeParecidoEspecifico(int indice)
+    public Filme retornaFilmeParecidoEspecifico(int indice)
     {
         return ListaFilmesParecidos.get(indice);
     }
 
-    public void removeFilmeParecidoEspecifico(int indice)
+    public void removeFilmesParecidoEspecifico(int indice)
     {
         ListaFilmesParecidos.remove(indice);
-    };
+    }
+
+    public List<Filme> getListaFilmesParecidos() {
+        return ListaFilmesParecidos;
+    }
+
+    public void setListaFilmesParecidos(List<Filme> listaFilmesParecidos) {
+        ListaFilmesParecidos = listaFilmesParecidos;
+    }
 
     @Override
     public boolean retornaTrueObjetoSuperclasse()
