@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Catalogo
 {
-    void insereListaDeProdutos(Produto produto);
-    void removeListaDeProdutos(int indice);
+    void insereListaProdutos(Produto produto);
+    void removeListaProdutos(int indice);
     public int retornaNumeroProdutos();
 }

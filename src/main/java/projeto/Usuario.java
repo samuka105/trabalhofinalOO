@@ -3,18 +3,14 @@ package projeto;
 public class Usuario extends Pessoa
 {
     private int NumeroUsuario;
-    private String TipodeAssinatura;
+    private String TipoAssinatura;
 
-    public Usuario(String nome, String cpf, String cidade, String tipodeAssinatura) {
+    public Usuario(String nome, String cpf, String cidade, String TipoAssinatura) {
         super(nome, cpf, cidade);
-        if (
-                        (tipodeAssinatura.equals("Basico")) ||
-                        (tipodeAssinatura.equals("Premium")) ||
-                        (tipodeAssinatura.equals("Elite"))
-        ) {
-            throw new IllegalArgumentException("O tipo de assinatura tem de ser Basico, Premium ou Elite");
+        if (TipoAssinatura.length() < 4) {
+            throw new IllegalArgumentException("O tipo de assinatura tem de ter mais que 4 caracteres");
         } else {
-            TipodeAssinatura = tipodeAssinatura;
+            TipoAssinatura = TipoAssinatura;
         }
     }
 
@@ -26,11 +22,11 @@ public class Usuario extends Pessoa
         NumeroUsuario = numeroUsuario;
     }
 
-    public String getTipodeAssinatura() {
-        return TipodeAssinatura;
+    public String getTipoAssinatura() {
+        return TipoAssinatura;
     }
 
-    public void setTipodeAssinatura(String tipodeAssinatura) {
-        TipodeAssinatura = tipodeAssinatura;
+    public void setTipoAssinatura(String TipoAssinatura) {
+        TipoAssinatura = TipoAssinatura;
     }
 }

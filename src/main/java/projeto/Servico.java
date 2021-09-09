@@ -7,12 +7,12 @@ public class Servico implements Catalogo
 {
     private Dono dono;
     private String nome;
-    private float precoDaAssinatura;
+    private float precoAssinatura;
 
-    private List<Produto> ListaDeProdutos;
-    private List<Usuario> ListaDeUsuarios;
+    private List<Produto> ListaProdutos;
+    private List<Usuario> ListaUsuarios;
 
-    public Servico(Dono dono, String nome, float precoDaAssinatura) {
+    public Servico(Dono dono, String nome, float precoAssinatura) {
 
         if (dono == null) {
             throw new IllegalArgumentException("Serviço precisa de um Dono");
@@ -26,68 +26,68 @@ public class Servico implements Catalogo
             this.nome = nome;
         }
 
-        if (precoDaAssinatura < 5.0f) {
+        if (precoAssinatura < 5.0f) {
             throw new IllegalArgumentException("A assinatura tem de custar mais do que 5,00 reais");
         } else
         {
-            this.precoDaAssinatura = precoDaAssinatura;
+            this.precoAssinatura = precoAssinatura;
         }
 
-        this.ListaDeProdutos = new ArrayList<Produto>();
-        this.ListaDeUsuarios = new ArrayList<Usuario>();
+        this.ListaProdutos = new ArrayList<Produto>();
+        this.ListaUsuarios = new ArrayList<Usuario>();
     }
 
-    public void insereListaDeProdutos(Produto produto)
+    public void insereListaProdutos(Produto produto)
     {
-        ListaDeProdutos.add(produto);
-        produto.setIndiceNoCatalogo(ListaDeProdutos.indexOf(produto));
+        ListaProdutos.add(produto);
+        produto.setIndiceNoCatalogo(ListaProdutos.indexOf(produto));
     }
 
-    public void removeListaDeProdutos(int indice)
+    public void removeListaProdutos(int indice)
     {
-        ListaDeProdutos.remove(indice);
+        ListaProdutos.remove(indice);
     }
 
     public int retornaNumeroProdutos()
     {
-        return ListaDeProdutos.size();
+        return ListaProdutos.size();
     }
 
     public Produto retornaProdutoLista(int indice)
     {
-        return ListaDeProdutos.get(indice);
+        return ListaProdutos.get(indice);
     }
 
     public int retornaIndiceProdutoLista(Produto produto)
     {
-        return ListaDeProdutos.indexOf(produto);
+        return ListaProdutos.indexOf(produto);
     }
 
 
     public void insereListaDeUsuarios(Usuario usuario)
     {
-        ListaDeUsuarios.add(usuario);
-        usuario.setNumeroUsuario(ListaDeUsuarios.indexOf(usuario));
+        ListaUsuarios.add(usuario);
+        usuario.setNumeroUsuario(ListaUsuarios.indexOf(usuario));
     }
 
     public void removeListaDeUsuarios(int indice)
     {
-        ListaDeUsuarios.remove(indice);
+        ListaUsuarios.remove(indice);
     }
 
     public int retornaNumeroUsuarios()
     {
-        return ListaDeUsuarios.size();
+        return ListaUsuarios.size();
     }
 
     public Usuario retornaUsuarioLista(int indice)
     {
-        return ListaDeUsuarios.get(indice);
+        return ListaUsuarios.get(indice);
     }
 
     public int retornaIndiceUsuarioLista(Usuario usuario)
     {
-        return ListaDeUsuarios.indexOf(usuario);
+        return ListaUsuarios.indexOf(usuario);
     }
 
     public Dono getDono() {
@@ -106,12 +106,12 @@ public class Servico implements Catalogo
         this.nome = nome;
     }
 
-    public float getPrecoDaAssinatura() {
-        return precoDaAssinatura;
+    public float getprecoAssinatura() {
+        return precoAssinatura;
     }
 
-    public void setPrecoDaAssinatura(float precoDaAssinatura) {
-        this.precoDaAssinatura = precoDaAssinatura;
+    public void setprecoAssinatura(float precoAssinatura) {
+        this.precoAssinatura = precoAssinatura;
     }
 
 }

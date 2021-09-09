@@ -60,7 +60,7 @@ public class ServicoTest {
         d1.criaServico("UFJFflix", 40.0f);
         Servico s1 = d1.getServico();
 
-        s1.insereListaDeProdutos(a);
+        s1.insereListaProdutos(a);
 
         assertEquals(0,s1.retornaIndiceProdutoLista(a));
 
@@ -75,7 +75,7 @@ public class ServicoTest {
         d1.criaServico("UFJFflix", 40.0f);
         Servico s1 = d1.getServico();
 
-        s1.insereListaDeProdutos(a);
+        s1.insereListaProdutos(a);
 
         assertEquals(a,s1.retornaProdutoLista(0));
     }
